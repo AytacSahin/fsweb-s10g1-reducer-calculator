@@ -5,7 +5,7 @@ import CalcButton from './components/CalcButton';
 
 import reducer from './reducers';
 import { initialState } from './reducers';
-import { applyNumber, changeOperation, clearDisplay } from './actions';
+import { applyNumber, changeOperation, clearDisplay, memorySetter, memoryRepeat, memoryReset } from './actions';
 
 function App() {
 
@@ -29,9 +29,9 @@ function App() {
             </div>
 
             <div className="row">
-              <CalcButton value={"M+"} />
-              <CalcButton value={"MR"} />
-              <CalcButton value={"MC"} />
+              <CalcButton value={"M+"} onClick={() => dispatch(memorySetter())}/>
+              <CalcButton value={"MR"} onClick={() => dispatch(memoryRepeat())}/>
+              <CalcButton value={"MC"} onClick={() => dispatch(memoryReset())}/>
             </div>
 
             <div className="row">
@@ -59,7 +59,7 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} onClick={(e) => dispatch(clearDisplay(e.target.value))}/>
+              <CalcButton value={"CE"} onClick={() => dispatch(clearDisplay())}/>
             </div>
 
           </form>
