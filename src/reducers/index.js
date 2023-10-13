@@ -5,10 +5,12 @@ import {
   CLEAR_DISPLAY,
   MEMORY_SETTER,
   MEMORY_REPEAT,
-  MEMORY_RESET
+  MEMORY_RESET,
+  CHANGE_INITIAL
 } from './../actions';
 
 export const initialState = {
+  initial: 0,
   total: 0,
   operation: "+",
   memory: 0
@@ -44,13 +46,14 @@ const reducer = (state, action) => {
     case (CHANGE_OPERATION):
       return ({
         ...state,
-        operation: action.payload
+        operation: action.payload,
+        initial: 0
       });
 
     case (CLEAR_DISPLAY):
       return ({
         ...state,
-        total: 0,
+        initial: 0,
       });
 
     case (MEMORY_SETTER):
@@ -69,6 +72,12 @@ const reducer = (state, action) => {
       return ({
         ...state,
         memory: 0
+      });
+
+    case (CHANGE_INITIAL):
+      return ({
+        ...state,
+        initial: state.initial * 10 + action.payload
       });
 
     default:

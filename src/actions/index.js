@@ -5,6 +5,8 @@ export const CLEAR_DISPLAY = "CLEAR_DISPLAY";
 export const MEMORY_SETTER = "MEMORY_SETTER";
 export const MEMORY_REPEAT = "MEMORY_REPEAT";
 export const MEMORY_RESET = "MEMORY_RESET";
+export const CHANGE_INITIAL = "CHANGE_INITIAL"
+
 
 export const addOne = () => {
   return ({ type: ADD_ONE });
@@ -32,4 +34,8 @@ export const memoryRepeat = () => {
 
 export const memoryReset = () => {
   return ({ type: MEMORY_RESET});
+}
+
+export const changeInitial = (number) => {
+  return ({ type: CHANGE_INITIAL, payload: Number(number) });
 }
